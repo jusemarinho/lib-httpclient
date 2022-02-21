@@ -1,4 +1,4 @@
-package lib;
+package br.com.josemarinho.http;
 
 import com.google.gson.Gson;
 import org.apache.commons.codec.Charsets;

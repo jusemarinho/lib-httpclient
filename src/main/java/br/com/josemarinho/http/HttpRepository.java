@@ -1,4 +1,4 @@
-package lib;
+package br.com.josemarinho.http;
 
 public class HttpRepository {
 
@@ -8,7 +8,7 @@ public class HttpRepository {
         this.httpConnection = new HttpConnection();
     }
 
-    public <T extends HttpRequest,O extends HttpResponse> O doRequest(T httpRequest, O objectClass) throws Exception {
+    public <T extends HttpRequest, O extends HttpResponse> O doRequest(T httpRequest, O objectClass) throws Exception {
         return this.httpConnection.doRequest(httpRequest, objectClass);
     }
 

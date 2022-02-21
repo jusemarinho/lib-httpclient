@@ -1,15 +1,12 @@
-package lib;
+package br.com.josemarinho.http;
 
-import org.apache.http.client.methods.HttpGet;
 import org.springframework.http.HttpMethod;
 
 import java.lang.reflect.Constructor;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.time.Duration;
-import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class HttpConnection {
 
@@ -19,7 +16,7 @@ public class HttpConnection {
         this.httpClient = HttpClient.newBuilder().build();
     }
 
-    public <T extends HttpRequest,O extends HttpResponse> O doRequest(T request, O interfaceHttpResponse) throws Exception {
+    public <T extends HttpRequest, O extends HttpResponse> O doRequest(T request, O interfaceHttpResponse) throws Exception {
 
         java.net.http.HttpRequest httpRequest = null;
         java.net.http.HttpResponse<?> httpResponse = null;
@@ -73,6 +70,6 @@ public class HttpConnection {
         Class<?> clazz = Class.forName(interfaceHttpResponse.getClass().getName());
         Constructor<?> ctor = clazz.getConstructor();
         Object object = ctor.newInstance();
-        return (O) ((O) object).handle(request, httpResponse.body().toString());
+        return (O) ((O) object).handle(request, httpResponse);
     }
 }

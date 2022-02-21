@@ -1,4 +1,4 @@
-package lib;
+package br.com.josemarinho.http;
 
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
