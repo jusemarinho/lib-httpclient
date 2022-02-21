@@ -20,6 +20,7 @@ public class HttpConnection {
 
         java.net.http.HttpRequest httpRequest = null;
         java.net.http.HttpResponse<?> httpResponse = null;
+        java.net.http.HttpRequest.Builder builder = null;
         var listaHeaders = new ArrayList<String>();
 
         var uri = URI.create(request.getUriRelative());
@@ -39,27 +40,14 @@ public class HttpConnection {
         }
 
         var arrayHeaders = listaHeaders.toArray(new String[0]);
+        builder = java.net.http.HttpRequest.newBuilder().uri(uri).headers(arrayHeaders).timeout(Duration.ofMillis(request.getTimeout()));
 
         if (request.getHttpMethod() == HttpMethod.GET) {
-            httpRequest = java.net.http.HttpRequest.newBuilder()
-                    .uri(uri)
-                    .headers(arrayHeaders)
-                    .GET()
-                    .timeout(Duration.ofMillis(request.getTimeout()))
-                    .build();
+            httpRequest = builder.GET().build();
             httpResponse = httpClient.send(httpRequest, java.net.http.HttpResponse.BodyHandlers.ofString());
 
         } else if (request.getHttpMethod() == HttpMethod.POST) {
-            httpRequest = java.net.http.HttpRequest.newBuilder()
-                    .uri(uri)
-                    .headers(arrayHeaders)
-                    .POST(java.net.http.HttpRequest.BodyPublishers.ofString(request.getPayload()))
-                    .timeout(Duration.ofMillis(request.getTimeout()))
-                    .build();
-
-
-
-
+            httpRequest = builder.POST(java.net.http.HttpRequest.BodyPublishers.ofString(request.getPayload())).build();
             httpResponse = httpClient.send(httpRequest, java.net.http.HttpResponse.BodyHandlers.ofString());
         }
         else {
