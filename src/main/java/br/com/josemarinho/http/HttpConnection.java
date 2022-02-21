@@ -40,7 +40,12 @@ public class HttpConnection {
         }
 
         var arrayHeaders = listaHeaders.toArray(new String[0]);
-        builder = java.net.http.HttpRequest.newBuilder().uri(uri).headers(arrayHeaders).timeout(Duration.ofMillis(request.getTimeout()));
+
+        if (arrayHeaders.length == 0) {
+            builder = java.net.http.HttpRequest.newBuilder().uri(uri).timeout(Duration.ofMillis(request.getTimeout()));
+        } else {
+            builder = java.net.http.HttpRequest.newBuilder().uri(uri).headers(arrayHeaders).timeout(Duration.ofMillis(request.getTimeout()));
+        }
 
         if (request.getHttpMethod() == HttpMethod.GET) {
             httpRequest = builder.GET().build();

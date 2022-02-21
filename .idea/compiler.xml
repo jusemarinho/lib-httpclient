@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="lib-httpclient-zezao" />
+        <module name="lib-httpclient-josemarinho" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="lib-httpclient-zezao" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
