@@ -8,8 +8,8 @@ public class HttpRepository {
         this.httpConnection = httpConnection;
     }
 
-    public <T extends HttpRequest, O extends HttpResponse> O doRequest(T httpRequest, O objectClass) throws Exception {
-        return this.httpConnection.doRequest(httpRequest, objectClass);
+    public <T extends HttpRequest, O extends HttpResponse> O doRequest(T httpRequest, O httpResponse) throws Exception {
+        return this.httpConnection.doRequest(httpRequest, httpResponse);
     }
     public HttpConnection getHttpConnection() {
         return httpConnection;
