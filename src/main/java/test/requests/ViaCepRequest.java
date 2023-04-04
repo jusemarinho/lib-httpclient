@@ -6,8 +6,8 @@ import org.springframework.http.MediaType;
 
 import java.util.HashMap;
 
-public class ObterMoedasRequest extends HttpRequest {
-    public ObterMoedasRequest() {
+public class ViaCepRequest extends HttpRequest {
+    public ViaCepRequest() {
         setTimeout(5000);
         setHeaders(new HashMap<>(){{
             put("Content-Type", "application/x-www-form-urlencoded");
