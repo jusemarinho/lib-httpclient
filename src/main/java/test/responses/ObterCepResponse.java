@@ -4,11 +4,11 @@ import br.com.josemarinho.http.HttpRequest;
 import br.com.josemarinho.http.HttpResponse;
 import br.com.josemarinho.http.JsonHelper;
 
-public class ObterMoedasResponse implements HttpResponse {
+public class ObterCepResponse implements HttpResponse {
 
-    private ObterMoedasResponseData viaCepResponeData;
+    private ObterCepResponseData viaCepResponeData;
 
-    public ObterMoedasResponseData getViaCepResponeData() {
+    public ObterCepResponseData getViaCepResponeData() {
         return viaCepResponeData;
     }
 
@@ -18,7 +18,7 @@ public class ObterMoedasResponse implements HttpResponse {
         if (httpResponseMessage.statusCode() != 200)
             return this;
 
-        this.viaCepResponeData = new JsonHelper<ObterMoedasResponseData>().deserializeFromString(httpResponseMessage.body().toString(), ObterMoedasResponseData.class);
+        this.viaCepResponeData = new JsonHelper<ObterCepResponseData>().deserializeFromString(httpResponseMessage.body().toString(), ObterCepResponseData.class);
 
         return this;
     }

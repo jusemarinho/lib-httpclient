@@ -15,7 +15,7 @@ public class ObterMoedasRequest extends HttpRequest {
         setStringMediaTypeMap(new HashMap<>(){{
             put("Accept-Encoding", MediaType.APPLICATION_JSON);
         }});
-        setUriRelative("https://lit-harbor-97954.herokuapp.com/v1/coins");
+        setUriRelative("https://viacep.com.br/ws/01001000/json/");
         setHttpMethod(HttpMethod.GET);
     }
 }
