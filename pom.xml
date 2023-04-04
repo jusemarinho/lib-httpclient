@@ -15,19 +15,12 @@
 
     <name>HttpClient Library</name>
     <description>This is a library for facilitate Http manipulation</description>
-    <url>https://github.com/jusebandtec/lib-httpclient-josemarinho</url>
-
-    <licenses>
-        <license>
-            <name>MIT License</name>
-            <url>http://www.opensource.org/licenses/mit-license.php</url>
-        </license>
-    </licenses>
+    <url>https://github.com/jusebandtec/lib-httpclient</url>
 
     <scm>
-        <url>https://github.com/jusebandtec/lib-httpclient-josemarinho</url>
-        <connection>scm:git:git://github.com/jusebandtec/lib-httpclient-josemarinho.git</connection>
-        <developerConnection>scm:git:git@github.com:jusebandtec/lib-httpclient-josemarinho.git</developerConnection>
+        <url>https://github.com/jusebandtec/lib-httpclient</url>
+        <connection>scm:git:git://github.com/jusebandtec/lib-httpclient.git</connection>
+        <developerConnection>scm:git:git@github.com:jusebandtec/lib-httpclient.git</developerConnection>
     </scm>
 
 
@@ -39,6 +32,24 @@
         </developer>
     </developers>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
 
 
@@ -68,17 +79,6 @@
         <url>https://github.com/jusebandtec</url>
     </organization>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
-
     <build>
         <plugins>
             <plugin>
@@ -96,7 +96,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <nexusUrl>https://s01.oss.sonatype.org//</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
@@ -139,17 +139,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
             </plugin>
         </plugins>
     </build>
