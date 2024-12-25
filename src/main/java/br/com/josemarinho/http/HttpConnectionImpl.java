@@ -23,25 +23,25 @@ public class HttpConnectionImpl implements HttpConnection {
         java.net.http.HttpRequest httpRequest = null;
         java.net.http.HttpResponse<?> httpResponse = null;
         java.net.http.HttpRequest.Builder builder = null;
-        var listaHeaders = new ArrayList<String>();
+        var listHeaders = new ArrayList<String>();
 
         var uri = URI.create(request.getUriRelative());
 
         if (request.getHeaders() != null) {
             for (var header : request.getHeaders().entrySet()) {
-                listaHeaders.add(header.getKey());
-                listaHeaders.add(header.getValue());
+                listHeaders.add(header.getKey());
+                listHeaders.add(header.getValue());
             }
         }
 
         if (request.getStringMediaTypeMap() != null) {
             for (var header : request.getStringMediaTypeMap().entrySet()) {
-                listaHeaders.add(header.getKey());
-                listaHeaders.add(header.getValue().toString());
+                listHeaders.add(header.getKey());
+                listHeaders.add(header.getValue().toString());
             }
         }
 
-        var arrayHeaders = listaHeaders.toArray(new String[0]);
+        var arrayHeaders = listHeaders.toArray(new String[0]);
 
         if (arrayHeaders.length == 0) {
             builder = java.net.http.HttpRequest.newBuilder().uri(uri).timeout(Duration.ofMillis(request.getTimeout()));
