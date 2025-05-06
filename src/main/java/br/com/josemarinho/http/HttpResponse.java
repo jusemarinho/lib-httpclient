@@ -1,5 +1,5 @@
 package br.com.josemarinho.http;
 
 public interface HttpResponse {
-    HttpResponse handle(HttpRequest httpRequest, java.net.http.HttpResponse<?> httpResponseMessage);
+    <T extends HttpResponse> T handle(HttpRequest httpRequest, java.net.http.HttpResponse<?> httpResponseMessage);
 }

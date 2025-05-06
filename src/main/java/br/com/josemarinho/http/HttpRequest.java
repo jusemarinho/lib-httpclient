@@ -8,8 +8,6 @@ import java.awt.*;
 import java.util.Map;
 
 @Builder
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class HttpRequest {
@@ -25,4 +23,47 @@ public class HttpRequest {
         return timeout == 0 ? 5_000 : timeout;
     }
 
+    public String getUriRelative() {
+        return uriRelative;
+    }
+
+    public void setUriRelative(String uriRelative) {
+        this.uriRelative = uriRelative;
+    }
+
+    public Map<String, MediaType> getStringMediaTypeMap() {
+        return stringMediaTypeMap;
+    }
+
+    public void setStringMediaTypeMap(Map<String, MediaType> stringMediaTypeMap) {
+        this.stringMediaTypeMap = stringMediaTypeMap;
+    }
+
+    public Map<String, String> getHeaders() {
+        return headers;
+    }
+
+    public void setHeaders(Map<String, String> headers) {
+        this.headers = headers;
+    }
+
+    public String getPayload() {
+        return payload;
+    }
+
+    public void setPayload(String payload) {
+        this.payload = payload;
+    }
+
+    public HttpMethod getHttpMethod() {
+        return httpMethod;
+    }
+
+    public void setHttpMethod(HttpMethod httpMethod) {
+        this.httpMethod = httpMethod;
+    }
+
+    public void setTimeout(long timeout) {
+        this.timeout = timeout;
+    }
 }
